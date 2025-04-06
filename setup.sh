@@ -4,13 +4,13 @@
 echo "Setting up Synthara Education CLI..."
 
 # Create installation directory
-INSTALL_DIR="$HOME/synthara-cli"
+INSTALL_DIR="$HOME/synthara-education-cli"
 mkdir -p "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 
 # Download necessary files
 echo "Downloading files..."
-curl -s -O https://raw.githubusercontent.com/bniladridas/gemini_cli/main/simple_gemini_cli/gemini_chat.py
+curl -s -O https://raw.githubusercontent.com/synthara-company/synthara-education-cli/main/simple_gemini_cli/gemini_chat.py
 mkdir -p simple_gemini_cli
 mv gemini_chat.py simple_gemini_cli/
 
@@ -20,7 +20,7 @@ python3 -m venv venv
 
 # Create wrapper script
 echo "Creating launcher..."
-cat > gemini-chat << 'EOF'
+cat > synthara-education << 'EOF'
 #!/bin/bash
 
 # Change to the installation directory
@@ -39,7 +39,7 @@ fi
 python simple_gemini_cli/gemini_chat.py
 EOF
 
-chmod +x gemini-chat
+chmod +x synthara-education
 
 # Install dependencies in the virtual environment
 echo "Installing dependencies..."
@@ -49,8 +49,8 @@ pip install google-generativeai rich --quiet
 echo ""
 echo "✅ Installation complete!"
 echo "✅ To run Synthara Education CLI, use the following command:"
-echo "   cd $INSTALL_DIR && ./gemini-chat"
+echo "   cd $INSTALL_DIR && ./synthara-education"
 echo ""
-
-# Run the application directly
-./gemini-chat
+echo "⭐ The application is now installed and ready to use!"
+echo "⭐ Run the command above to start using Synthara Education CLI."
+echo ""
